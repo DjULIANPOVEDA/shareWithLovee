@@ -16,8 +16,9 @@ namespace shareWithLove.Models;
         {
         }
 
-        public virtual DbSet<Usuario> Usuarios { get; set; }
-        public virtual DbSet<donacion> Donacion{ get; set; }
+        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Donations> Donation { get; set; }
+        public virtual DbSet<Clothe> Clothes { get; set; }
 
 
 
@@ -26,11 +27,11 @@ namespace shareWithLove.Models;
     => optionsBuilder.UseNpgsql ("Host=dpg-cl60qjl140uc73ersh7g-a.oregon-postgres.render.com;Database=sharewithlove;Username=sharewithlove_user;Password=QKpLxe1HD23Rh1iUFir7UXzksC8ux72f");
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<donacion>()
-                .HasOne(l => l.Usuario)
-                .WithMany(l => l.Libros);
+            modelBuilder.Entity<Clothe>()
+                .HasOne(l => l.Us)
+                .WithMany(l => l.Clothes);
 
-            modelBuilder.Entity<donacion>()
+           /* modelBuilder.Entity<donacion>()
                 .HasOne(l => l.Comprador)
                 .WithMany(l => l.LibrosComprados);
 
@@ -43,7 +44,7 @@ namespace shareWithLove.Models;
                 .Property(e => e.Estado)
                 .HasConversion<string>()
                 .HasColumnName("estado")
-                .HasColumnType("enum(Estados)");
+                .HasColumnType("enum(Estados)");*/
             OnModelCreatingPartial(modelBuilder);
         }
 

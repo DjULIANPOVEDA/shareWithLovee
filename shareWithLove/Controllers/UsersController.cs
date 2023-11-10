@@ -12,7 +12,7 @@ using System.Security.Claims;
 
 namespace shareWithLove.Controllers
 {
-    public class Usuario
+    public class Users
     {
     }
 }
