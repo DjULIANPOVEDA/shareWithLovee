@@ -2,6 +2,6 @@
 {
     public class ReportResponse
     {
-        public object QuantityClothe { get; set; }
+        public object ClothesDonate { get; set; }
     }
 }

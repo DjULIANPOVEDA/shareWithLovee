@@ -8,6 +8,7 @@ namespace shareWithLove.Models.Response
         public string? DonateId { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string Size { get; set; } = string.Empty;
-        public virtual UserResponse User { get; set; }
+        public virtual UserResponse Owner { get; set; }
+        public virtual UserResponse Donate { get; set; }
     }
 }

@@ -100,5 +100,24 @@ namespace shareWithLove.Controllers
             await _context.SaveChangesAsync();
             return Ok(true);
         }
+
+        [HttpGet("Report")]
+        [Authorize]
+        public async Task<ActionResult<ReportResponse>> GenerarReporte()
+        {
+            var reporteResponse = new ReportResponse();
+            var clothess = await _context.Clothes.ToListAsync();
+
+            var isAviable = 0;
+            var isDonated = 0;
+            
+            foreach (var clothe in clothess)
+            {
+                if (clothe.DonateId==null) isAviable++;
+                else isDonated++;
+            }
+            reporteResponse.ClothesDonate = new { isAviable, isDonated };
+            return Ok(reporteResponse);
+        }
     }
 }
