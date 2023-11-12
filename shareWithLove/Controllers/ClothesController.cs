@@ -12,9 +12,9 @@ namespace shareWithLove.Controllers
     [ApiController]
     public class ClothesController : ControllerBase
     {
-        private readonly shareWithLoveDbContext _context;
+        private readonly ShareWithLoveDbContext _context;
         private readonly IMapper _mapper;
-        public ClothesController(shareWithLoveDbContext context, IMapper mapper)
+        public ClothesController(ShareWithLoveDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -24,7 +24,7 @@ namespace shareWithLove.Controllers
         [HttpGet]
         public async Task<ActionResult<List<DonationResponse>>> GetAllClothsFiltered()
         {
-            var clothes = await _context.Clothes.Where(l => l.DonateId!=null).ToListAsync();
+            var clothes = await _context.Clothes.Where(l => l.DonateId==null).ToListAsync();
             var clothResult = _mapper.Map<List<DonationResponse>>(clothes);
             return Ok(clothResult);
         }
@@ -33,7 +33,7 @@ namespace shareWithLove.Controllers
         [Authorize]
         public async Task<ActionResult<List<DonationWithUserResponse>>> GetAllCloths()
         {
-            var clothes = await _context.Clothes.Include(l => l.Owner).Include(l=>l.Donate).ToListAsync();
+            var clothes = await _context.Clothes.ToListAsync();
 
             var clothResult = _mapper.Map<List<DonationWithUserResponse>>(clothes);
             return Ok(clothResult);
@@ -56,10 +56,9 @@ namespace shareWithLove.Controllers
             var userId = User.FindFirst("UsuarioId")?.Value;
             var cloth = _mapper.Map<Clothe>(request);
             cloth.Id = Guid.NewGuid().ToString();
-            cloth.OwnerId = userId;
+            cloth.OwnerId = userId.ToString();
             await _context.Clothes.AddAsync(cloth);
             await _context.SaveChangesAsync();
-
             return Ok(true);
         }
 

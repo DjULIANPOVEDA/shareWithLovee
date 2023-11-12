@@ -19,6 +19,12 @@ public class User
     [Column("address")]
     public string Address { get; set; } = string.Empty;
 
-    public virtual ICollection<Clothe> OwnerClothes { get; set; }
-    public virtual ICollection<Clothe> DonatedClothes { get; set; }
+    //public virtual ICollection<Clothe> OwnerClothes { get; set; }
+    //public virtual ICollection<Clothe> DonatedClothes { get; set; }
+
+    public User()
+    {
+        //OwnerClothes = new HashSet<Clothe>();
+        //DonatedClothes = new HashSet<Clothe>();
+    }
 }

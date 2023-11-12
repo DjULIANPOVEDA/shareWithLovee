@@ -16,9 +16,9 @@ namespace shareWithLove.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly shareWithLoveDbContext _context;
+        private readonly ShareWithLoveDbContext _context;
         private readonly IMapper _mapper;
-        public UserController(shareWithLoveDbContext context, IMapper mapper)
+        public UserController(ShareWithLoveDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

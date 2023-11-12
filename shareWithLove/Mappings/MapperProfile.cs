@@ -14,9 +14,11 @@ namespace shareWithLove.Mappings
 
 
             CreateMap<DonationResponse, Clothe>();
+            CreateMap<DonationRequest, Clothe>();
             CreateMap<Clothe, DonationWithUserResponse>();
             CreateMap<Clothe, DonationResponse>();
             CreateMap<Clothe, DonationRequest>();
         }
     }
 }
+
