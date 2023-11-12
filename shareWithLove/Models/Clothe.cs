@@ -3,20 +3,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace shareWithLove.Models;
 
-[Table("Clothe")]
+[Table("clothe")]
 public class Clothe
 {
     [Key, Column("id")]
-    public string Id { get; set; } = null!;
-    [Column("propietario")]
-    public string IdUser { get; set; } = null!;
-    [Column("nombre")]
-    public string Name { get; set; } = null!;
-    
-    
-    public string? AlquiladorId { get; set; }
-    public virtual User Us { get; set; }
-    public virtual User? Donor { get; set; }
-    public virtual User? Donee { get; set; }
+    public string Id { get; set; } = string.Empty;
+    [Column("ownerid")]
+    public string OwnerId { get; set; } = string.Empty;
+    [Column("donateid")]
+    public string? DonateId { get; set; } = string.Empty;
+    [Column("name")]
+    public string Name { get; set; } = string.Empty;
+    [Column("size")]
+    public string Size { get; set; } = string.Empty;
+    public virtual User Owner { get; set; }
+    public virtual User? Donate { get; set; }
 }
 

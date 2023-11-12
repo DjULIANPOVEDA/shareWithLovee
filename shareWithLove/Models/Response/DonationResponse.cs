@@ -1,12 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace shareWithLove.Models.Response
 {
     public class DonationResponse
     {
-        public string Id { get; set; } = null!;
-        public string Clothe{ get; set; } = null!;
-        public string Size { get; set; } = null!;
-        public bool Donated { get; set; }
+        public string Id { get; set; } = string.Empty;
+        public string OwnerId { get; set; } = string.Empty;
+        public string? DonateId { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string Size { get; set; } = string.Empty;
 
     }
 }

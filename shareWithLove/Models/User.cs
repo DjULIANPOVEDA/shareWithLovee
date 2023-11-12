@@ -3,27 +3,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace shareWithLove.Models;
 
-[Table("usuario")]
+[Table("appuser")]
 public class User
 {
     [Key, Column("id")]
-    public string Id { get; set; } = null!;
-    [Column("rol")]
-    public string Rol { get; set; } = null!;
+    public string Id { get; set; } = string.Empty;
     [Column("username")]
-    public string Username { get; set; } = null!;
+    public string UserName { get; set; } = string.Empty;
     [Column("password")]
-    public string Password { get; set; } = null!;
-    [Column("Phone")]
-    public string Phone { get; set; } = null!;
-    [Column("Email")]
-    public string Email { get; set; } = null!;
-    [Column("Address")]
-    public string Address { get; set; } = null!;
+    public string Password { get; set; } = string.Empty;
+    [Column("phone")]
+    public string Phone { get; set; } = string.Empty;
+    [Column("email")]
+    public string Email { get; set; } = string.Empty;
+    [Column("address")]
+    public string Address { get; set; } = string.Empty;
 
-    public virtual ICollection<Clothe> Clothes { get; set; }
-
-    //public virtual ICollection<Libro> LibrosComprados { get; set; }
-    //public virtual ICollection<Libro> LibrosAlquilados { get; set; }
-    //public virtual ICollection<Renta> Rentas { get; set; }
+    public virtual ICollection<Clothe> OwnerClothes { get; set; }
+    public virtual ICollection<Clothe> DonatedClothes { get; set; }
 }

@@ -4,10 +4,9 @@ namespace shareWithLove.Models.Request
 {
     public class DonationRequest
     {
-        public string Id { get; set; } = null!;
-        public string Clothe{ get; set; } = null!;
-        public string Size { get; set; } = null!;
-        public string State { get; set; } = null!;
+        public string Id { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string Size { get; set; } = string.Empty;
 
     }
 }
